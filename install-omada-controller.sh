@@ -1,7 +1,7 @@
 #!/bin/bash
 #title           :install-omada-controller.sh
 #description     :Installer for TP-Link Omada Software Controller
-#supported       :Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04
+#supported       :Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04, Ubuntu 26.04
 #author          :monsn0
 #date            :2021-07-29
 #updated         :2025-03-31
@@ -38,8 +38,11 @@ elif [[ $OS = *"Ubuntu 22.04"* ]]; then
     OsVer=jammy
 elif [[ $OS = *"Ubuntu 24.04"* ]]; then
     OsVer=noble
+elif [[ $OS = *"Ubuntu 26.04"* ]]; then
+    # MongoDB 8.0 has no "resolute" apt repo yet; use the noble (24.04) repo.
+    OsVer=noble
 else
-    echo -e "\e[1;31m[!] Script currently only supports Ubuntu 20.04, 22.04 or 24.04! \e[0m"
+    echo -e "\e[1;31m[!] Script currently only supports Ubuntu 20.04, 22.04, 24.04 or 26.04! \e[0m"
     exit
 fi
 
